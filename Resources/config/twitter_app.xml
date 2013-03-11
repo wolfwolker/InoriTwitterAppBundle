@@ -13,19 +13,25 @@
         
         <parameter key="inori_twitter_app.api.class">TwitterOAuth</parameter>
         <parameter key="inori_twitter_app.service.class">Inori\TwitterAppBundle\Services\TwitterApp</parameter>        
+        <parameter key="inori_twitter_app.factory.class">Inori\TwitterAppBundle\Services\TwitterAppFactory</parameter>
     </parameters>
     
     <services>
-        <service id="twitter_app" class="%inori_twitter_app.service.class%">
+        <service id="twitter_app_factory" class="%inori_twitter_app.factory.class%">
+            <argument>%inori_twitter_app.configuration%</argument>
+            <argument>%inori_twitter_app.service.class%</argument>
+        </service>
+
+        <!--<service id="twitter_app" class="%inori_twitter_app.service.class%">
             <argument type="service" id="inori_twitter_app.api"/>
-        </service>        
-        
+        </service>
+
         <service id="inori_twitter_app.api" class="%inori_twitter_app.api.class%">
             <file>%inori_twitter_app.file%</file>
             <argument key="consumer_key">%inori_twitter_app.consumer_key%</argument>
             <argument key="consumer_secret">%inori_twitter_app.consumer_secret%</argument>
             <argument key="oauth_token">%inori_twitter_app.oauth_token%</argument>
             <argument key="oauth_token_secret">%inori_twitter_app.oauth_token_secret%</argument>
-        </service>        
+        </service>-->
     </services>
 </container>

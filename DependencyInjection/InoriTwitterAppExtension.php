@@ -20,9 +20,10 @@ class InoriTwitterAppExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
 
+		$container->setParameter('inori_twitter_app.configuration', $config);
         $this->loadDefaults($container);
-        
-        if (isset($config['alias'])) {
+
+        /*if (isset($config['alias'])) {
             $container->setAlias($config['alias'], 'inori_twitter_app');
         }        
 
@@ -30,7 +31,7 @@ class InoriTwitterAppExtension extends Extension
             if (isset($config[$attribute])) {
                 $container->setParameter('inori_twitter_app.'.$attribute, $config[$attribute]);
             }
-        }
+        }*/
     }
     
     protected function loadDefaults($container)
